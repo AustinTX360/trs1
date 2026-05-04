@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas Research Supplies — Lab Products & Equipment</title>
+  <meta name="description" content="Premium lab products and equipment for Texas researchers. Trusted by universities, national labs, and biotech companies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0F2640;
+      --navy-mid: #1B3A5C;
+      --navy-light: #2A5580;
+      --accent: #C8470A;
+      --accent-hover: #A83808;
+      --gold: #D4960A;
+      --bg: #F7F6F3;
+      --bg-white: #FFFFFF;
+      --border: #E2E0DA;
+      --border-dark: #C8C5BC;
+      --text: #1A1A18;
+      --text-mid: #4A4A46;
+      --text-muted: #888880;
+      --tag-bg: #EBF2FA;
+      --tag-text: #1B3A5C;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      text-align: center;
+      padding: 7px 1rem;
+      letter-spacing: 0.02em;
+    }
+    .topbar strong { color: #fff; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      height: 64px;
+      gap: 1.5rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-mark svg { width: 22px; height: 22px; }
+    .logo-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.15;
+    }
+    .logo-domain {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-search {
+      flex: 1;
+      max-width: 320px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+    }
+    .nav-search svg { flex-shrink: 0; color: var(--text-muted); }
+    .nav-search input {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 13px;
+      color: var(--text);
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .nav-search input::placeholder { color: var(--text-muted); }
+    .nav-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+    .btn-quote {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 18px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-quote:hover { background: var(--accent-hover); }
+    .cart-btn {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s;
+    }
+    .cart-btn:hover { border-color: var(--navy); }
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 500;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 4rem 1.5rem;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 4px 12px 4px 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1.25rem;
+    }
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ADE80;
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 strong { font-weight: 500; }
+    .hero-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-hero-primary {
+      padding: 11px 24px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.15s;
+    }
+    .btn-hero-primary:hover { background: var(--accent-hover); }
+    .btn-hero-secondary {
+      padding: 11px 24px;
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.15s;
+    }
+    .btn-hero-secondary:hover { border-color: rgba(255,255,255,0.5); }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat-num { font-size: 22px; font-weight: 500; color: #fff; }
+    .hero-stat-lbl { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 1px; }
+    .hero-right {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 260px;
+    }
+    .hero-mini {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .hero-mini-icon { font-size: 24px; margin-bottom: 6px; }
+    .hero-mini-name { font-size: 11px; color: rgba(255,255,255,0.65); line-height: 1.3; }
+    .hero-mini-ct { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+
+    /* ── TRUST BAR ── */
+    .trust {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      padding: 0 1.5rem;
+    }
+    .trust-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 1.1rem 1.25rem;
+      border-right: 1px solid var(--border);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--tag-bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .trust-label { font-size: 13px; font-weight: 500; color: var(--text); }
+    .trust-desc { font-size: 11.5px; color: var(--text-muted); margin-top: 1px; }
+
+    /* ── MAIN LAYOUT ── */
+    .main {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar { width: 210px; flex-shrink: 0; }
+    .sidebar-section { margin-bottom: 1.75rem; }
+    .sidebar-title {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .cat-list { list-style: none; }
+    .cat-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13.5px;
+      color: var(--text-mid);
+      transition: background 0.12s, color 0.12s;
+    }
+    .cat-list li:hover, .cat-list li.active {
+      background: var(--tag-bg);
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .cat-count {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+    }
+    .cat-list li.active .cat-count { color: var(--navy-light); }
+    .price-range { padding: 0 2px; }
+    .price-inputs { display: flex; gap: 8px; margin-top: 8px; }
+    .price-inputs input {
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg-white);
+      outline: none;
+    }
+    .price-inputs input:focus { border-color: var(--navy-light); }
+
+    /* ── PRODUCT GRID ── */
+    .catalog { flex: 1; min-width: 0; }
+    .catalog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+    .catalog-title { font-size: 16px; font-weight: 500; }
+    .catalog-sub { font-size: 13px; color: var(--text-muted); margin-top: 1px; }
+    .sort-select {
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--bg-white);
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+    }
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .prod-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.18s, border-color 0.18s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .prod-card:hover {
+      box-shadow: 0 4px 20px rgba(15,38,64,0.09);
+      border-color: var(--border-dark);
+    }
+    .prod-img-wrap {
+      background: var(--bg);
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .prod-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .prod-badge.new { background: #ECFDF0; color: #166534; }
+    .prod-body { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+    .prod-cat { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+    .prod-name { font-size: 13.5px; font-weight: 500; color: var(--text); line-height: 1.35; margin-bottom: 6px; flex: 1; }
+    .prod-sku { font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace; margin-bottom: 12px; }
+    .prod-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .prod-price { font-size: 16px; font-weight: 500; color: var(--navy); }
+    .prod-unit { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+    .add-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      background: var(--navy);
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+    .add-btn:hover { background: var(--accent); }
+
+    /* ── QUOTE BANNER ── */
+    .quote-banner {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin: 2.5rem auto;
+      max-width: 1100px;
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .qb-text { color: #fff; }
+    .qb-title { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+    .qb-sub { font-size: 13.5px; color: rgba(255,255,255,0.55); }
+    .qb-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .btn-qb {
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: #fff;
+      transition: background 0.15s;
+    }
+    .btn-qb:hover { background: rgba(255,255,255,0.08); }
+    .btn-qb.primary { background: var(--accent); border-color: var(--accent); }
+    .btn-qb.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 2.5rem 1.5rem 1.5rem;
+      margin-top: 3rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: flex;
+      gap: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .footer-brand { flex: 1.5; }
+    .footer-logo-name { font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 8px; }
+    .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; max-width: 260px; }
+    .footer-col h4 { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { font-size: 13px; color: rgba(255,255,255,0.4); transition: color 0.12s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── CART DRAWER ── */
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 200;
+    }
+    .cart-overlay.open { display: block; }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 380px;
+      height: 100vh;
+      background: var(--bg-white);
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.28s ease;
+      box-shadow: -4px 0 30px rgba(0,0,0,0.12);
+    }
+    .cart-drawer.open { right: 0; }
+    .cart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cart-head h3 { font-size: 15px; font-weight: 500; }
+    .close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-mid); }
+    .cart-items { flex: 1; overflow-y: auto; padding: 1rem 1.5rem; }
+    .cart-empty { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 14px; }
+    .cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .ci-icon { width: 44px; height: 44px; background: var(--bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .ci-name { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+    .ci-price { font-size: 12px; color: var(--text-muted); }
+    .ci-remove { margin-left: auto; background: none; border: none; font-size: 16px; cursor: pointer; color: var(--text-muted); align-self: flex-start; }
+    .cart-foot { padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); }
+    .cart-total { display: flex; justify-content: space-between; font-size: 15px; font-weight: 500; margin-bottom: 1rem; }
+    .btn-checkout {
+      width: 100%;
+      padding: 12px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      margin-bottom: 8px;
+    }
+    .btn-request-quote {
+      width: 100%;
+      padding: 11px;
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── PRODUCT MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--bg-white);
+      border-radius: 14px;
+      max-width: 560px;
+      width: 90%;
+      padding: 2rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--text-mid);
+    }
+    .modal-top { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .modal-img { width: 110px; height: 110px; background: var(--bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 50px; flex-shrink: 0; }
+    .modal-meta {}
+    .modal-cat { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+    .modal-name { font-size: 18px; font-weight: 500; line-height: 1.25; margin-bottom: 8px; }
+    .modal-sku { font-size: 12px; color: var(--text-muted); font-family: 'DM Mono', monospace; margin-bottom: 10px; }
+    .modal-price { font-size: 22px; font-weight: 500; color: var(--navy); }
+    .modal-unit { font-size: 12px; color: var(--text-muted); }
+    .modal-desc { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.5rem; }
+    .modal-actions { display: flex; gap: 10px; }
+    .btn-modal-add {
+      flex: 1;
+      padding: 11px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-modal-quote {
+      flex: 1;
+      padding: 11px;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      z-index: 400;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.25s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    @media (max-width: 860px) {
+      .sidebar { display: none; }
+      .prod-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-right { display: none; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <strong>Free shipping</strong> on orders over $150 · Texas researchers: call <strong>(512) 000-0000</strong> for bulk pricing
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="8" y="3" width="8" height="5" rx="1" fill="#9ECFF5"/>
+          <rect x="6" y="7" width="12" height="2" rx="0.5" fill="#9ECFF5"/>
+          <rect x="10" y="9" width="4" height="12" rx="0.5" fill="white"/>
+          <circle cx="12" cy="14" r="1.5" fill="#9ECFF5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-name">Texas Research Supplies</div>
+        <div class="logo-domain">TexasResearchSupplies.com</div>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-search">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input id="searchInput" type="text" placeholder="Search products, SKU, category…" oninput="filterProducts()" />
+    </div>
+    <div class="nav-actions">
+      <button class="btn-quote" onclick="scrollToQuote()">Get a Quote</button>
+      <button class="cart-btn" onclick="openCart()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        Now serving Texas research institutions
+      </div>
+      <h1>Lab Supplies &amp;<br><strong>Equipment for</strong><br><strong>Texas Researchers</strong></h1>
+      <p class="hero-sub">High-quality materials, chemicals, and equipment — built for universities, national labs, and innovative companies across Texas.</p>
+      <div class="hero-btns">
+        <button class="btn-hero-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Browse Products</button>
+        <button class="btn-hero-secondary" onclick="scrollToQuote()">Request a Quote</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num">20+</div><div class="hero-stat-lbl">Products</div></div>
+        <div><div class="hero-stat-num">48hr</div><div class="hero-stat-lbl">Avg. Delivery TX</div></div>
+        <div><div class="hero-stat-num">100%</div><div class="hero-stat-lbl">Quality Guaranteed</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-mini"><div class="hero-mini-icon">⚗️</div><div class="hero-mini-name">Chemicals &amp; Reagents</div><div class="hero-mini-ct">High purity</div></div>
+      <div class="hero-mini"><div class="hero-mini-icon">🔬</div><div class="hero-mini-name">Lab Equipment</div><div class="hero-mini-ct">Research grade</div></div>
+      <div class="hero-mini"><div class="hero-mini-icon">🧲</div><div class="hero-mini-name">Advanced Materials</div><div class="hero-mini-ct">Custom available</div></div>
+      <div class="hero-mini"><div class="hero-mini-icon">🔋</div><div class="hero-mini-name">Energy Storage</div><div class="hero-mini-ct">R&amp;D focused</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><div class="trust-icon">🚚</div><div><div class="trust-label">Fast Texas Shipping</div><div class="trust-desc">Austin, Houston, Dallas — 1-2 days</div></div></div>
+    <div class="trust-item"><div class="trust-icon">🎓</div><div><div class="trust-label">Technical Support</div><div class="trust-desc">PhD-level product guidance</div></div></div>
+    <div class="trust-item"><div class="trust-icon">💰</div><div><div class="trust-label">Price Match</div><div class="trust-desc">We match any US competitor</div></div></div>
+    <div class="trust-item"><div class="trust-icon">🏛️</div><div><div class="trust-label">PO &amp; Net Terms</div><div class="trust-desc">Accepted for institutions</div></div></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main" id="products">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Category</div>
+      <ul class="cat-list" id="catList">
+        <li class="active" onclick="setCategory('All')">All Products <span class="cat-count" id="ct-All">20</span></li>
+        <li onclick="setCategory('Chemicals')">Chemicals &amp; Reagents <span class="cat-count" id="ct-Chemicals">6</span></li>
+        <li onclick="setCategory('Equipment')">Lab Equipment <span class="cat-count" id="ct-Equipment">5</span></li>
+        <li onclick="setCategory('Materials')">Advanced Materials <span class="cat-count" id="ct-Materials">5</span></li>
+        <li onclick="setCategory('Energy')">Energy &amp; Battery <span class="cat-count" id="ct-Energy">4</span></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Price Range</div>
+      <div class="price-range">
+        <div class="price-inputs">
+          <input type="number" id="minPrice" placeholder="Min $" oninput="filterProducts()" />
+          <input type="number" id="maxPrice" placeholder="Max $" oninput="filterProducts()" />
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CATALOG -->
+  <div class="catalog">
+    <div class="catalog-header">
+      <div>
+        <div class="catalog-title" id="catalogTitle">All Products</div>
+        <div class="catalog-sub" id="catalogSub">Showing 20 products</div>
+      </div>
+      <select class="sort-select" onchange="sortProducts(this.value)">
+        <option value="default">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name">Name: A–Z</option>
+      </select>
+    </div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </div>
+</div>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner" id="quoteSection">
+  <div class="qb-text">
+    <div class="qb-title">Need bulk pricing or a custom quote?</div>
+    <div class="qb-sub">We support POs, net-30 terms, and volume discounts for universities and research institutions.</div>
+  </div>
+  <div class="qb-actions">
+    <button class="btn-qb" onclick="window.location='mailto:quotes@texasresearchsupplies.com?subject=Quote Request'">Email a Quote</button>
+    <button class="btn-qb primary" onclick="window.location='tel:5120000000'">Call Us</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-name">Texas Research Supplies</div>
+        <div class="footer-tagline">Supplying Texas researchers with premium lab products, chemicals, and equipment. Austin-based. Research-grade.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#">Chemicals &amp; Reagents</a></li>
+          <li><a href="#">Lab Equipment</a></li>
+          <li><a href="#">Advanced Materials</a></li>
+          <li><a href="#">Energy &amp; Battery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@texasresearchsupplies.com">info@texasresearchsupplies.com</a></li>
+          <li><a href="tel:5120000000">(512) 000-0000</a></li>
+          <li><a href="#">Austin, Texas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Texas Research Supplies LLC · All rights reserved</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"><div class="cart-empty">Your cart is empty.</div></div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="btn-checkout">Proceed to Checkout</button>
+    <button class="btn-request-quote" onclick="requestQuote()">Request a Quote Instead</button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-top">
+      <div class="modal-img" id="modalImg"></div>
+      <div class="modal-meta">
+        <div class="modal-cat" id="modalCat"></div>
+        <div class="modal-name" id="modalName"></div>
+        <div class="modal-sku" id="modalSku"></div>
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="modal-unit" id="modalUnit"></div>
+      </div>
+    </div>
+    <div class="modal-desc" id="modalDesc"></div>
+    <div class="modal-actions">
+      <button class="btn-modal-add" id="modalAddBtn">Add to Cart</button>
+      <button class="btn-modal-quote" onclick="requestQuote()">Request a Quote</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── PRODUCT DATA ──────────────────────────────────────────────────
+  // Edit this array to add/change/remove products. No database needed!
+  const PRODUCTS = [
+    { id:1, name:"Anhydrous Ethanol, HPLC Grade", cat:"Chemicals", sku:"TRS-CH-001", price:74, unit:"4L bottle", icon:"⚗️", badge:"", desc:"Ultra-high purity anhydrous ethanol for HPLC and analytical applications. ≥99.9% purity, water content <0.01%." },
+    { id:2, name:"Acetonitrile, LC-MS Grade", cat:"Chemicals", sku:"TRS-CH-002", price:58, unit:"1L bottle", icon:"🧪", badge:"", desc:"LC-MS grade acetonitrile with ultra-low UV absorbance. Ideal for mass spectrometry and HPLC applications." },
+    { id:3, name:"Sodium Hydroxide Pellets, ACS Grade", cat:"Chemicals", sku:"TRS-CH-003", price:32, unit:"500g", icon:"⚗️", badge:"New", desc:"ACS reagent-grade sodium hydroxide pellets, ≥97% purity. Used in titration, pH adjustment, and synthesis." },
+    { id:4, name:"Hydrochloric Acid, TraceMetal Grade", cat:"Chemicals", sku:"TRS-CH-004", price:45, unit:"500mL", icon:"🧫", badge:"", desc:"Trace metal grade HCl for ICP-MS sample preparation. Ultra-low metal impurities (<1 ppb each)." },
+    { id:5, name:"Dimethyl Sulfoxide (DMSO), Cell Culture Grade", cat:"Chemicals", sku:"TRS-CH-005", price:28, unit:"100mL", icon:"⚗️", badge:"", desc:"Sterile-filtered DMSO for cell culture and cryopreservation. Endotoxin tested, low water content." },
+    { id:6, name:"Phosphate Buffered Saline (PBS), 10x", cat:"Chemicals", sku:"TRS-CH-006", price:22, unit:"1L bottle", icon:"🧪", badge:"", desc:"10x concentrated PBS, pH 7.4. Ready-to-dilute for cell biology and molecular biology applications." },
+    { id:7, name:"Digital Analytical Balance, 0.0001g", cat:"Equipment", sku:"TRS-EQ-001", price:420, unit:"unit", icon:"⚖️", badge:"", desc:"High-precision analytical balance with 0.1 mg readability, 120g capacity. Includes RS-232 output and draft shield." },
+    { id:8, name:"Magnetic Stir Hot Plate", cat:"Equipment", sku:"TRS-EQ-002", price:185, unit:"unit", icon:"🌀", badge:"", desc:"Ceramic-coated hot plate with magnetic stirrer. Temperature range: RT to 380°C. Max stir speed 1500 rpm." },
+    { id:9, name:"Vacuum Desiccator Cabinet, 300mm", cat:"Equipment", sku:"TRS-EQ-003", price:310, unit:"unit", icon:"🔬", badge:"", desc:"Polycarbonate desiccator for moisture-sensitive samples. Includes vacuum port, stopcock valve, and perforated plate." },
+    { id:10, name:"Peristaltic Pump, Variable Speed", cat:"Equipment", sku:"TRS-EQ-004", price:265, unit:"unit", icon:"💧", badge:"New", desc:"Compact peristaltic pump with variable flow rate 0.07–380 mL/min. Compatible with multiple tube sizes." },
+    { id:11, name:"Ultrasonic Bath Cleaner, 3L", cat:"Equipment", sku:"TRS-EQ-005", price:155, unit:"unit", icon:"📡", badge:"", desc:"3L ultrasonic cleaner with digital timer and temperature control. 40 kHz frequency, stainless steel tank." },
+    { id:12, name:"Borosilicate Glass Substrates, 25x25mm", cat:"Materials", sku:"TRS-MT-001", price:48, unit:"pkg/25", icon:"🟦", badge:"", desc:"Optical borosilicate glass substrates, 1mm thick. Surface roughness <0.5 nm RMS. Cleaned and packaged under cleanroom conditions." },
+    { id:13, name:"ITO Coated Glass, 15 Ω/sq", cat:"Materials", sku:"TRS-MT-002", price:89, unit:"pkg/10", icon:"⚡", badge:"", desc:"Indium tin oxide coated glass substrates for OPV, OLED, and electrochemical applications. Sheet resistance 15 Ω/sq ±10%." },
+    { id:14, name:"Sputtering Target, Au 99.99%", cat:"Materials", sku:"TRS-MT-003", price:340, unit:"50mm dia.", icon:"🥇", badge:"", desc:"High-purity gold sputtering target (99.99%). 50mm diameter, 3mm thickness. Bonded to copper backing plate." },
+    { id:15, name:"Graphene Oxide Dispersion, 4mg/mL", cat:"Materials", sku:"TRS-MT-004", price:95, unit:"100mL", icon:"⬡", badge:"", desc:"Single-layer graphene oxide in water, 4 mg/mL. Lateral size 1–10 µm. Ideal for thin film deposition and composites." },
+    { id:16, name:"Alumina (Al₂O₃) Nanoparticles, 50nm", cat:"Materials", sku:"TRS-MT-005", price:62, unit:"100g", icon:"🔵", badge:"", desc:"High-purity α-Al₂O₃ nanoparticles, ~50nm average particle size. >99.9% purity. Used in coatings, polishing, and catalysis." },
+    { id:17, name:"Li-Ion Coin Cell Kit (CR2032)", cat:"Energy", sku:"TRS-EN-001", price:145, unit:"kit/50", icon:"🔋", badge:"", desc:"Complete coin cell assembly kit: 50x CR2032 cases, spacers, springs, and gaskets. Compatible with standard crimpers." },
+    { id:18, name:"LiFePO₄ Cathode Powder, Battery Grade", cat:"Energy", sku:"TRS-EN-002", price:185, unit:"100g", icon:"⚡", badge:"New", desc:"Battery-grade lithium iron phosphate cathode material. D50 ~2µm, tap density 1.1–1.3 g/cc. BET surface area 14–18 m²/g." },
+    { id:19, name:"Battery Electrolyte, 1M LiPF₆ in EC/DMC", cat:"Energy", sku:"TRS-EN-003", price:110, unit:"100mL", icon:"🧴", badge:"", desc:"Standard lithium-ion battery electrolyte. 1M LiPF₆ dissolved in EC:DMC (1:1 v/v). Water content <20 ppm." },
+    { id:20, name:"Separator Membrane, PE 16µm", cat:"Energy", sku:"TRS-EN-004", price:68, unit:"1m x 0.2m", icon:"📄", badge:"", desc:"Polyethylene microporous separator for lithium batteries, 16 µm thick. Porosity ~40%, air permeability 250 s/100cc." },
+  ];
+
+  // ── STATE ─────────────────────────────────────────────────────────
+  let cart = [];
+  let currentCat = 'All';
+  let currentSort = 'default';
+  let currentModal = null;
+
+  // ── RENDER ────────────────────────────────────────────────────────
+  function getFiltered() {
+    const q = (document.getElementById('searchInput').value || '').toLowerCase();
+    const minP = parseFloat(document.getElementById('minPrice')?.value) || 0;
+    const maxP = parseFloat(document.getElementById('maxPrice')?.value) || Infinity;
+    let list = PRODUCTS.filter(p => {
+      if (currentCat !== 'All' && p.cat !== currentCat) return false;
+      if (p.price < minP || p.price > maxP) return false;
+      if (q && !p.name.toLowerCase().includes(q) && !p.sku.toLowerCase().includes(q) && !p.cat.toLowerCase().includes(q)) return false;
+      return true;
+    });
+    if (currentSort === 'price-asc') list.sort((a,b) => a.price - b.price);
+    else if (currentSort === 'price-desc') list.sort((a,b) => b.price - a.price);
+    else if (currentSort === 'name') list.sort((a,b) => a.name.localeCompare(b.name));
+    return list;
+  }
+
+  function renderGrid() {
+    const list = getFiltered();
+    const grid = document.getElementById('prodGrid');
+    document.getElementById('catalogSub').textContent = `Showing ${list.length} product${list.length !== 1 ? 's' : ''}`;
+    if (!list.length) {
+      grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-muted)">No products match your filters.</div>';
+      return;
+    }
+    grid.innerHTML = list.map(p => `
+      <div class="prod-card" onclick="openModal(${p.id})">
+        <div class="prod-img-wrap">
+          <span>${p.icon}</span>
+          ${p.badge ? `<span class="prod-badge ${p.badge === 'New' ? 'new' : ''}">${p.badge}</span>` : ''}
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">${p.cat}</div>
+          <div class="prod-name">${p.name}</div>
+          <div class="prod-sku">${p.sku}</div>
+          <div class="prod-footer">
+            <div>
+              <div class="prod-price">$${p.price.toFixed(2)}</div>
+              <div class="prod-unit">per ${p.unit}</div>
+            </div>
+            <button class="add-btn" onclick="event.stopPropagation(); addToCart(${p.id})">+</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterProducts() { renderGrid(); }
+  function sortProducts(v) { currentSort = v; renderGrid(); }
+  function setCategory(cat) {
+    currentCat = cat;
+    document.querySelectorAll('#catList li').forEach(li => {
+      li.classList.toggle('active', li.textContent.trim().startsWith(cat === 'All' ? 'All' : cat));
+    });
+    document.getElementById('catalogTitle').textContent = cat === 'All' ? 'All Products' : cat;
+    renderGrid();
+  }
+
+  // ── CART ──────────────────────────────────────────────────────────
+  function addToCart(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    const existing = cart.find(x => x.id === id);
+    if (existing) existing.qty++;
+    else cart.push({ ...p, qty: 1 });
+    updateCartUI();
+    showToast(`${p.name.split(',')[0]} added to cart`);
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(x => x.id !== id);
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
+    const count = cart.reduce((s, x) => s + x.qty, 0);
+    document.getElementById('cartBadge').textContent = count;
+    const itemsEl = document.getElementById('cartItems');
+    const footEl = document.getElementById('cartFoot');
+    if (!cart.length) {
+      itemsEl.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
+      footEl.style.display = 'none';
+    } else {
+      itemsEl.innerHTML = cart.map(x => `
+        <div class="cart-item">
+          <div class="ci-icon">${x.icon}</div>
+          <div>
+            <div class="ci-name">${x.name.split(',')[0]}${x.qty > 1 ? ` ×${x.qty}` : ''}</div>
+            <div class="ci-price">$${(x.price * x.qty).toFixed(2)} · per ${x.unit}</div>
+          </div>
+          <button class="ci-remove" onclick="removeFromCart(${x.id})">✕</button>
+        </div>
+      `).join('');
+      document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+      footEl.style.display = 'block';
+    }
+  }
+
+  function openCart() {
+    document.getElementById('cartOverlay').classList.add('open');
+    document.getElementById('cartDrawer').classList.add('open');
+  }
+  function closeCart() {
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.getElementById('cartDrawer').classList.remove('open');
+  }
+
+  // ── MODAL ─────────────────────────────────────────────────────────
+  function openModal(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    currentModal = p;
+    document.getElementById('modalImg').textContent = p.icon;
+    document.getElementById('modalCat').textContent = p.cat;
+    document.getElementById('modalName').textContent = p.name;
+    document.getElementById('modalSku').textContent = p.sku;
+    document.getElementById('modalPrice').textContent = '$' + p.price.toFixed(2);
+    document.getElementById('modalUnit').textContent = 'per ' + p.unit;
+    document.getElementById('modalDesc').textContent = p.desc;
+    document.getElementById('modalAddBtn').onclick = () => { addToCart(p.id); closeModal(); };
+    document.getElementById('modalOverlay').classList.add('open');
+  }
+  function closeModal(e) {
+    if (!e || e.target === document.getElementById('modalOverlay')) {
+      document.getElementById('modalOverlay').classList.remove('open');
+    }
+  }
+
+  // ── UTILS ─────────────────────────────────────────────────────────
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = '✓ ' + msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+  function scrollToQuote() {
+    document.getElementById('quoteSection').scrollIntoView({ behavior: 'smooth' });
+  }
+  function requestQuote() {
+    const items = cart.length
+      ? cart.map(x => `${x.name} (${x.sku}) x${x.qty}`).join('%0A')
+      : '';
+    window.location = `mailto:quotes@texasresearchsupplies.com?subject=Quote Request&body=${items}`;
+  }
+
+  // ── INIT ──────────────────────────────────────────────────────────
+  renderGrid();
+</script>
+</body>
+</html>
