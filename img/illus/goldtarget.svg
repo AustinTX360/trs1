@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#FBF5EF"/><ellipse cx="200" cy="262" rx="150" ry="12" fill="#000" opacity=".06"/><path d="M110 175 v26 a90 32 0 0 0 180 0 v-26" fill="#A8622E" stroke="#333F48" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="200" cy="175" rx="90" ry="32" fill="#B87333" stroke="#333F48" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M126 162 v10 a74 26 0 0 0 148 0 v-10" fill="#C9A227" stroke="#333F48" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="200" cy="162" rx="74" ry="26" fill="#E2C044" stroke="#333F48" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M150 155 a50 16 0 0 1 50 -10" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".8"/><g><rect x="18" y="18" rx="6" width="100" height="30" fill="#fff" stroke="#333F48" stroke-opacity=".15"/><text x="25" y="38" font-family="ui-monospace,Menlo,monospace" font-size="15" fill="#333F48">Au 99.99%</text></g></svg>

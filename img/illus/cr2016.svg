@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#FBF5EF"/><ellipse cx="200" cy="262" rx="150" ry="12" fill="#000" opacity=".06"/><path d="M110 160 v34 a90 34 0 0 0 180 0 v-34" fill="#9AA3AA" stroke="#333F48" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="200" cy="160" rx="90" ry="34" fill="#C7CDD2" stroke="#333F48" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="200" cy="160" rx="34" ry="13" fill="#D79A2B" stroke="#333F48" stroke-width="2.5"/>
+<path d="M150 150 a60 20 0 0 1 40 -12" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".8"/><g><rect x="18" y="18" rx="6" width="72" height="30" fill="#fff" stroke="#333F48" stroke-opacity=".15"/><text x="25" y="38" font-family="ui-monospace,Menlo,monospace" font-size="15" fill="#333F48">CR2016</text></g></svg>
