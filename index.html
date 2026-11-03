@@ -62,7 +62,7 @@
     .btn-primary:hover { background: var(--accent-hover); }
     .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.3); }
     .btn-ghost:hover { border-color: rgba(255,255,255,.6); }
-    .cats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 3rem; }
+    .cats-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 3rem; }
     .cat-tile { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: .15s; text-align: left; color: #fff; }
     .cat-tile:hover { background: rgba(255,255,255,.1); }
     .cat-tile svg { width: 26px; height: 26px; flex-shrink: 0; color: #9ECFF5; }
@@ -238,8 +238,8 @@
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow">Laboratory supplies · Austin, Texas</div>
-    <h1>Chemicals, equipment &amp; materials for <strong>Texas research labs</strong></h1>
-    <p>Browse our catalog, add what you need to a quote request, and we'll reply with pricing and availability. Built for university, government, and industry research teams.</p>
+    <h1>Battery materials, lab equipment &amp; supplies for <strong>Texas research labs</strong></h1>
+    <p>Browse our catalog, add what you need to a quote request, and we'll reply with pricing and availability. Built for battery, materials, and chemistry research teams at universities, government labs, and companies.</p>
     <div class="btns">
       <a href="#products" class="btn btn-primary">Browse products</a>
       <a href="#how" class="btn btn-ghost">How ordering works</a>
@@ -257,7 +257,7 @@
       <div class="step"><div class="step-n">01</div><h3>Build your list</h3><p>Add products to your quote request and set quantities.</p></div>
       <div class="step"><div class="step-n">02</div><h3>Send the request</h3><p>Include your organization and any requirements, such as grade, pack size, or deadline.</p></div>
       <div class="step"><div class="step-n">03</div><h3>Receive a quote</h3><p>We reply with pricing, availability, and shipping details.</p></div>
-      <div class="step"><div class="step-n">04</div><h3>Place your order</h3><p>Approve the quote and we'll arrange delivery.</p></div>
+      <div class="step"><div class="step-n">04</div><h3>Place your order</h3><p>Approve the quote and pay by wire transfer, ACH, or purchase order. We'll arrange delivery.</p></div>
     </div>
   </div>
 </section>
@@ -302,7 +302,7 @@
         <li>Pricing is provided by quote and depends on quantity and shipping requirements.</li>
         <li>Some products are regulated hazardous materials. These are sold only to research institutions and businesses, and they ship in accordance with applicable regulations.</li>
         <li>Safety Data Sheets (SDS) are available on request.</li>
-        <li>Institutional purchase orders are welcome. Ask about terms when you request a quote.</li>
+        <li>Payment is by wire transfer, ACH, or institutional purchase order. Payment details are sent with your quote.</li>
       </ul>
     </div>
   </div>
@@ -390,12 +390,16 @@
     Equipment: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="18" height="8" rx="2"/><path d="M7 12V8a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.2"/></svg>',
     Materials: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5" opacity=".5"/></svg>',
     Energy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 11v2"/><path d="m11 9-2 3h4l-2 3"/></svg>',
+    Cells: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v2M12 18v2"/></svg>',
+    Labware: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h14l-1.5 10a2 2 0 0 1-2 1.7h-7a2 2 0 0 1-2-1.7L5 9Z"/><path d="M4 9h16"/><path d="M9 5c0 1 1 1 1 2M14 4c0 1 1 1 1 2"/></svg>',
   };
   const CATS = [
-    { key: "Chemicals", label: "Chemicals & Reagents" },
+    { key: "Energy", label: "Battery Materials" },
+    { key: "Cells", label: "Cell Assembly" },
     { key: "Equipment", label: "Lab Equipment" },
-    { key: "Materials", label: "Advanced Materials" },
-    { key: "Energy", label: "Energy & Battery" },
+    { key: "Labware", label: "Labware & Consumables" },
+    { key: "Chemicals", label: "Chemicals & Reagents" },
+    { key: "Materials", label: "Substrates & Materials" },
   ];
   const HAZMAT_NOTE = "Regulated hazardous material. Sold to research institutions and businesses only. SDS available on request.";
 
@@ -409,26 +413,76 @@
   // Products with a price show it. Products with a price AND a stripeLink
   // (and not hazmat) also get a "Buy now" button. Everything else is quote-only.
   const PRODUCTS = [
-    { id:1,  cat:"Chemicals", sku:"TRS-CH-001", unit:"4 L bottle", hazmat:true,  name:"Anhydrous Ethanol, HPLC Grade", desc:"High-purity anhydrous ethanol for HPLC and analytical applications." },
-    { id:2,  cat:"Chemicals", sku:"TRS-CH-002", unit:"1 L bottle", hazmat:true,  name:"Acetonitrile, LC-MS Grade", desc:"LC-MS grade acetonitrile with low UV absorbance, for mass spectrometry and HPLC." },
-    { id:3,  cat:"Chemicals", sku:"TRS-CH-003", unit:"500 g",      hazmat:true,  name:"Sodium Hydroxide Pellets, ACS Grade", desc:"ACS reagent-grade sodium hydroxide pellets for titration, pH adjustment, and synthesis." },
-    { id:4,  cat:"Chemicals", sku:"TRS-CH-004", unit:"500 mL",     hazmat:true,  name:"Hydrochloric Acid, Trace Metal Grade", desc:"Trace metal grade HCl for ICP-MS sample preparation." },
-    { id:5,  cat:"Chemicals", sku:"TRS-CH-005", unit:"100 mL",     hazmat:false, name:"Dimethyl Sulfoxide (DMSO), Cell Culture Grade", desc:"Sterile-filtered DMSO for cell culture and cryopreservation." },
-    { id:6,  cat:"Chemicals", sku:"TRS-CH-006", unit:"1 L bottle", hazmat:false, name:"Phosphate Buffered Saline (PBS), 10x", desc:"10x concentrated PBS, pH 7.4, ready to dilute for cell and molecular biology." },
-    { id:7,  cat:"Equipment", sku:"TRS-EQ-001", unit:"each",       hazmat:false, name:"Analytical Balance, 0.1 mg Readability", desc:"Analytical balance with 0.1 mg readability and draft shield. Capacity options available." },
-    { id:8,  cat:"Equipment", sku:"TRS-EQ-002", unit:"each",       hazmat:false, name:"Magnetic Stirring Hot Plate", desc:"Ceramic-top hot plate with magnetic stirring, for general heating and mixing." },
-    { id:9,  cat:"Equipment", sku:"TRS-EQ-003", unit:"each",       hazmat:false, name:"Vacuum Desiccator, 300 mm", desc:"Desiccator for moisture-sensitive samples, with vacuum port and stopcock valve." },
-    { id:10, cat:"Equipment", sku:"TRS-EQ-004", unit:"each",       hazmat:false, name:"Peristaltic Pump, Variable Speed", desc:"Compact variable-speed peristaltic pump compatible with multiple tubing sizes." },
-    { id:11, cat:"Equipment", sku:"TRS-EQ-005", unit:"each",       hazmat:false, name:"Ultrasonic Cleaning Bath, 3 L", desc:"3 L ultrasonic bath with digital timer and heating, stainless steel tank." },
-    { id:12, cat:"Materials", sku:"TRS-MT-001", unit:"pack of 25", hazmat:false, name:"Borosilicate Glass Substrates, 25 × 25 mm", desc:"Optical borosilicate glass substrates, 1 mm thick, for thin-film and optical work." },
-    { id:13, cat:"Materials", sku:"TRS-MT-002", unit:"pack of 10", hazmat:false, name:"ITO-Coated Glass, 15 Ω/sq", desc:"Indium tin oxide coated glass for OPV, OLED, and electrochemical applications." },
-    { id:14, cat:"Materials", sku:"TRS-MT-003", unit:"each",       hazmat:false, name:"Gold Sputtering Target, 99.99%", desc:"High-purity gold sputtering target. Diameter, thickness, and backing plate options available. Priced by current metal value." },
-    { id:15, cat:"Materials", sku:"TRS-MT-004", unit:"100 mL",     hazmat:false, name:"Graphene Oxide Dispersion, 4 mg/mL", desc:"Graphene oxide dispersed in water, for thin-film deposition and composites." },
-    { id:16, cat:"Materials", sku:"TRS-MT-005", unit:"100 g",      hazmat:false, name:"Alumina (Al₂O₃) Nanoparticles, ~50 nm", desc:"High-purity alumina nanoparticles for coatings, polishing, and catalysis." },
-    { id:17, cat:"Energy",    sku:"TRS-EN-001", unit:"kit of 50",  hazmat:false, name:"Coin Cell Parts Kit (CR2032)", desc:"CR2032 cases, spacers, springs, and gaskets for coin cell assembly." },
-    { id:18, cat:"Energy",    sku:"TRS-EN-002", unit:"100 g",      hazmat:false, name:"LiFePO₄ Cathode Powder, Battery Grade", desc:"Battery-grade lithium iron phosphate cathode material for cell research." },
-    { id:19, cat:"Energy",    sku:"TRS-EN-003", unit:"100 mL",     hazmat:true,  name:"Battery Electrolyte, 1 M LiPF₆ in EC/DMC", desc:"Standard lithium-ion electrolyte, 1 M LiPF₆ in EC:DMC (1:1 v/v)." },
-    { id:20, cat:"Energy",    sku:"TRS-EN-004", unit:"roll",       hazmat:false, name:"Polyethylene Separator Membrane, 16 µm", desc:"Microporous polyethylene separator for lithium battery research." },
+    { id:1, cat:"Energy", sku:"TRS-EN-002", unit:"100 g", hazmat:false, name:"LiFePO₄ Cathode Powder, Battery Grade", desc:"Battery-grade lithium iron phosphate cathode material for cell research." },
+    { id:2, cat:"Energy", sku:"TRS-EN-005", unit:"100 g", hazmat:false, name:"NMC811 Cathode Powder", desc:"Nickel-rich NMC cathode active material for high-energy lithium-ion research." },
+    { id:3, cat:"Energy", sku:"TRS-EN-006", unit:"100 g", hazmat:false, name:"Graphite Anode Powder, Battery Grade", desc:"Spherical graphite anode active material for lithium-ion cells." },
+    { id:4, cat:"Energy", sku:"TRS-EN-007", unit:"100 g", hazmat:false, name:"Hard Carbon Anode Powder", desc:"Hard carbon anode material for sodium-ion and lithium-ion battery research." },
+    { id:5, cat:"Energy", sku:"TRS-EN-008", unit:"50 g", hazmat:false, name:"Silicon–Carbon Composite Anode Powder", desc:"Si–C composite anode material for high-capacity anode development." },
+    { id:6, cat:"Energy", sku:"TRS-EN-009", unit:"100 g", hazmat:false, name:"Conductive Carbon Black Additive", desc:"Conductive carbon additive for electrode slurries." },
+    { id:7, cat:"Energy", sku:"TRS-EN-010", unit:"50 g", hazmat:false, name:"Vapor-Grown Carbon Fiber Additive", desc:"Carbon nanofiber conductive additive to improve electrode conductivity." },
+    { id:8, cat:"Energy", sku:"TRS-EN-011", unit:"100 g", hazmat:false, name:"PVDF Binder Powder", desc:"Polyvinylidene fluoride binder for NMP-based cathode slurries." },
+    { id:9, cat:"Energy", sku:"TRS-EN-012", unit:"100 g", hazmat:false, name:"CMC Binder Powder", desc:"Sodium carboxymethyl cellulose binder for water-based anode slurries." },
+    { id:10, cat:"Energy", sku:"TRS-EN-013", unit:"100 g", hazmat:false, name:"SBR Binder Emulsion", desc:"Styrene-butadiene rubber binder, used with CMC for aqueous anodes." },
+    { id:11, cat:"Energy", sku:"TRS-EN-014", unit:"100 g", hazmat:false, name:"Activated Carbon for Supercapacitors", desc:"High-surface-area activated carbon for EDLC electrode research." },
+    { id:12, cat:"Energy", sku:"TRS-EN-003", unit:"100 mL", hazmat:true, name:"Battery Electrolyte, 1 M LiPF₆ in EC/DMC", desc:"Standard lithium-ion electrolyte, 1 M LiPF₆ in EC:DMC (1:1 v/v)." },
+    { id:13, cat:"Energy", sku:"TRS-EN-015", unit:"pack of 10", hazmat:true, name:"Lithium Metal Discs", desc:"Lithium metal counter/reference electrodes for half-cell testing. Ships under inert packaging." },
+    { id:14, cat:"Energy", sku:"TRS-EN-004", unit:"roll", hazmat:false, name:"Polyethylene Separator Membrane, 16 µm", desc:"Microporous polyethylene separator for lithium battery research." },
+    { id:15, cat:"Energy", sku:"TRS-EN-016", unit:"roll", hazmat:false, name:"Polypropylene Separator Membrane", desc:"Microporous polypropylene separator film for lithium-ion cells." },
+    { id:16, cat:"Energy", sku:"TRS-EN-017", unit:"pack of 100", hazmat:false, name:"Pre-Cut Separator Discs, 19 mm", desc:"Separator discs sized for CR20xx coin cells." },
+    { id:17, cat:"Energy", sku:"TRS-EN-018", unit:"pack of 50", hazmat:false, name:"Glass Fiber Separator Discs", desc:"High-porosity glass microfiber separators, common for sodium-ion and lithium-metal cells." },
+    { id:18, cat:"Energy", sku:"TRS-EN-019", unit:"roll", hazmat:false, name:"Ceramic-Coated Separator", desc:"Ceramic-coated polyolefin separator for improved thermal stability." },
+    { id:19, cat:"Energy", sku:"TRS-EN-020", unit:"roll", hazmat:false, name:"Aluminum Foil, Battery Grade", desc:"Aluminum current collector foil for cathodes." },
+    { id:20, cat:"Energy", sku:"TRS-EN-021", unit:"roll", hazmat:false, name:"Copper Foil, Battery Grade", desc:"Copper current collector foil for anodes." },
+    { id:21, cat:"Energy", sku:"TRS-EN-022", unit:"sheet", hazmat:false, name:"NMC811 Electrode Sheet on Aluminum Foil", desc:"Ready-made coated cathode sheet for cell assembly and benchmarking." },
+    { id:22, cat:"Cells", sku:"TRS-EN-001", unit:"kit of 50", hazmat:false, name:"Coin Cell Parts Kit (CR2032)", desc:"CR2032 cases, spacers, springs, and gaskets for coin cell assembly." },
+    { id:23, cat:"Cells", sku:"TRS-CA-001", unit:"pack of 100", hazmat:false, name:"CR2032 Coin Cell Cases", desc:"Stainless steel coin cell cases with gaskets." },
+    { id:24, cat:"Cells", sku:"TRS-CA-002", unit:"pack of 10", hazmat:false, name:"CR2016 Coin Cell Case with Kapton Window", desc:"Windowed coin cell cases for in-situ X-ray and optical analysis." },
+    { id:25, cat:"Cells", sku:"TRS-CA-003", unit:"pack of 100", hazmat:false, name:"Coin Cell Spacers and Springs", desc:"Stainless steel spacers and wave springs for coin cell assembly." },
+    { id:26, cat:"Cells", sku:"TRS-CA-004", unit:"each", hazmat:false, name:"Coin Cell Crimper", desc:"Crimping machine for sealing CR20xx coin cells." },
+    { id:27, cat:"Cells", sku:"TRS-CA-005", unit:"each", hazmat:false, name:"Electrode Disc Cutter", desc:"Precision disc cutter for punching electrodes and separators." },
+    { id:28, cat:"Cells", sku:"TRS-CA-006", unit:"roll", hazmat:false, name:"Aluminum-Laminated Pouch Film", desc:"Laminated film for forming pouch cell cases." },
+    { id:29, cat:"Cells", sku:"TRS-CA-007", unit:"each", hazmat:false, name:"Pouch Cell Vacuum Sealer", desc:"Vacuum heat sealer for pouch cell assembly." },
+    { id:30, cat:"Cells", sku:"TRS-CA-008", unit:"each", hazmat:false, name:"Pouch Electrode Die Cutter", desc:"Die cutter for shaping pouch cell electrodes with tabs." },
+    { id:31, cat:"Cells", sku:"TRS-CA-009", unit:"pack of 10", hazmat:false, name:"Cylindrical Cell Cases (18650 / 21700)", desc:"Empty cylindrical cell cans and caps for cell prototyping." },
+    { id:32, cat:"Cells", sku:"TRS-CA-010", unit:"each", hazmat:false, name:"Film Applicator (Doctor Blade)", desc:"Adjustable applicator for casting electrode slurries." },
+    { id:33, cat:"Equipment", sku:"TRS-EQ-006", unit:"each", hazmat:false, name:"Tube Furnace, 1200 °C", desc:"Split or solid tube furnace for annealing and synthesis under controlled atmosphere." },
+    { id:34, cat:"Equipment", sku:"TRS-EQ-007", unit:"each", hazmat:false, name:"Muffle (Box) Furnace, 1200 °C", desc:"Benchtop box furnace for calcination, sintering, and heat treatment." },
+    { id:35, cat:"Equipment", sku:"TRS-EQ-008", unit:"each", hazmat:false, name:"Vacuum Drying Oven", desc:"Vacuum oven for drying electrodes, powders, and moisture-sensitive samples." },
+    { id:36, cat:"Equipment", sku:"TRS-EQ-009", unit:"each", hazmat:false, name:"Planetary Ball Mill", desc:"Planetary mill for grinding and mixing powders." },
+    { id:37, cat:"Equipment", sku:"TRS-EQ-010", unit:"each", hazmat:false, name:"Planetary Centrifugal Mixer", desc:"Non-contact mixer for bubble-free slurry preparation." },
+    { id:38, cat:"Equipment", sku:"TRS-EQ-011", unit:"each", hazmat:false, name:"Micro Centrifuge", desc:"Compact centrifuge for microtubes." },
+    { id:39, cat:"Equipment", sku:"TRS-EQ-012", unit:"each", hazmat:false, name:"Benchtop Centrifuge", desc:"General-purpose benchtop centrifuge with interchangeable rotors." },
+    { id:40, cat:"Equipment", sku:"TRS-EQ-001", unit:"each", hazmat:false, name:"Analytical Balance, 0.1 mg Readability", desc:"Analytical balance with 0.1 mg readability and draft shield. Capacity options available." },
+    { id:41, cat:"Equipment", sku:"TRS-EQ-002", unit:"each", hazmat:false, name:"Magnetic Stirring Hot Plate", desc:"Ceramic-top hot plate with magnetic stirring, for general heating and mixing." },
+    { id:42, cat:"Equipment", sku:"TRS-EQ-003", unit:"each", hazmat:false, name:"Vacuum Desiccator, 300 mm", desc:"Desiccator for moisture-sensitive samples, with vacuum port and stopcock valve." },
+    { id:43, cat:"Equipment", sku:"TRS-EQ-004", unit:"each", hazmat:false, name:"Peristaltic Pump, Variable Speed", desc:"Compact variable-speed peristaltic pump compatible with multiple tubing sizes." },
+    { id:44, cat:"Equipment", sku:"TRS-EQ-005", unit:"each", hazmat:false, name:"Ultrasonic Cleaning Bath, 3 L", desc:"3 L ultrasonic bath with digital timer and heating, stainless steel tank." },
+    { id:45, cat:"Labware", sku:"TRS-LW-001", unit:"each", hazmat:false, name:"High-Purity Alumina Boat Crucible", desc:"Alumina combustion boat for tube furnace work. Multiple sizes available." },
+    { id:46, cat:"Labware", sku:"TRS-LW-002", unit:"each", hazmat:false, name:"High-Purity Alumina Cylindrical Crucible", desc:"Alumina crucible for high-temperature melting and calcination. Multiple sizes available." },
+    { id:47, cat:"Labware", sku:"TRS-LW-003", unit:"each", hazmat:false, name:"Fused Quartz Crucible", desc:"High-purity quartz crucible for high-temperature, low-contamination work." },
+    { id:48, cat:"Labware", sku:"TRS-LW-004", unit:"each", hazmat:false, name:"Graphite Crucible with Lid", desc:"Graphite crucible for melting and inert-atmosphere processing." },
+    { id:49, cat:"Labware", sku:"TRS-LW-005", unit:"500 g", hazmat:false, name:"Zirconia (YSZ) Milling Balls", desc:"Yttria-stabilized zirconia grinding media. Multiple diameters available." },
+    { id:50, cat:"Labware", sku:"TRS-LW-006", unit:"each", hazmat:false, name:"Zirconia Milling Jar", desc:"Zirconia grinding jar for planetary ball mills." },
+    { id:51, cat:"Labware", sku:"TRS-LW-007", unit:"each", hazmat:false, name:"Agate Mortar and Pestle", desc:"Agate mortar for contamination-free grinding of small samples." },
+    { id:52, cat:"Labware", sku:"TRS-LW-008", unit:"pack of 2", hazmat:false, name:"Quartz Cuvettes, 10 mm Path", desc:"Quartz cuvettes for UV-Vis spectroscopy." },
+    { id:53, cat:"Labware", sku:"TRS-LW-009", unit:"each", hazmat:false, name:"Hydrothermal Autoclave Reactor with PTFE Liner", desc:"Stainless steel autoclave with PTFE liner for hydrothermal synthesis. Multiple volumes available." },
+    { id:54, cat:"Labware", sku:"TRS-LW-010", unit:"each", hazmat:false, name:"Replacement PTFE Liner", desc:"PTFE liner for hydrothermal autoclave reactors." },
+    { id:55, cat:"Labware", sku:"TRS-LW-011", unit:"each", hazmat:false, name:"Crucible Tongs", desc:"Stainless steel tongs for handling hot crucibles." },
+    { id:56, cat:"Chemicals", sku:"TRS-CH-001", unit:"4 L bottle", hazmat:true, name:"Anhydrous Ethanol, HPLC Grade", desc:"High-purity anhydrous ethanol for HPLC and analytical applications." },
+    { id:57, cat:"Chemicals", sku:"TRS-CH-002", unit:"1 L bottle", hazmat:true, name:"Acetonitrile, LC-MS Grade", desc:"LC-MS grade acetonitrile with low UV absorbance, for mass spectrometry and HPLC." },
+    { id:58, cat:"Chemicals", sku:"TRS-CH-007", unit:"1 L bottle", hazmat:true, name:"N-Methyl-2-Pyrrolidone (NMP), Anhydrous", desc:"Anhydrous NMP solvent for PVDF-based electrode slurries." },
+    { id:59, cat:"Chemicals", sku:"TRS-CH-003", unit:"500 g", hazmat:true, name:"Sodium Hydroxide Pellets, ACS Grade", desc:"ACS reagent-grade sodium hydroxide pellets for titration, pH adjustment, and synthesis." },
+    { id:60, cat:"Chemicals", sku:"TRS-CH-004", unit:"500 mL", hazmat:true, name:"Hydrochloric Acid, Trace Metal Grade", desc:"Trace metal grade HCl for ICP-MS sample preparation." },
+    { id:61, cat:"Chemicals", sku:"TRS-CH-005", unit:"100 mL", hazmat:false, name:"Dimethyl Sulfoxide (DMSO), Cell Culture Grade", desc:"Sterile-filtered DMSO for cell culture and cryopreservation." },
+    { id:62, cat:"Chemicals", sku:"TRS-CH-006", unit:"1 L bottle", hazmat:false, name:"Phosphate Buffered Saline (PBS), 10x", desc:"10x concentrated PBS, pH 7.4, ready to dilute for cell and molecular biology." },
+    { id:63, cat:"Materials", sku:"TRS-MT-001", unit:"pack of 25", hazmat:false, name:"Borosilicate Glass Substrates, 25 × 25 mm", desc:"Optical borosilicate glass substrates, 1 mm thick, for thin-film and optical work." },
+    { id:64, cat:"Materials", sku:"TRS-MT-002", unit:"pack of 10", hazmat:false, name:"ITO-Coated Glass, 15 Ω/sq", desc:"Indium tin oxide coated glass for OPV, OLED, and electrochemical applications." },
+    { id:65, cat:"Materials", sku:"TRS-MT-006", unit:"pack of 10", hazmat:false, name:"Silicon Wafers", desc:"Prime or test-grade silicon wafers. Diameter, orientation, and doping options available." },
+    { id:66, cat:"Materials", sku:"TRS-MT-007", unit:"each", hazmat:false, name:"NaCl Crystal Substrates", desc:"Sodium chloride crystal substrates for IR spectroscopy and thin-film work." },
+    { id:67, cat:"Materials", sku:"TRS-MT-003", unit:"each", hazmat:false, name:"Gold Sputtering Target, 99.99%", desc:"High-purity gold sputtering target. Diameter, thickness, and backing plate options available. Priced by current metal value." },
+    { id:68, cat:"Materials", sku:"TRS-MT-008", unit:"100 g", hazmat:false, name:"High-Purity Zinc Pellets", desc:"Zinc pellets for thermal evaporation. Purity options available." },
+    { id:69, cat:"Materials", sku:"TRS-MT-004", unit:"100 mL", hazmat:false, name:"Graphene Oxide Dispersion, 4 mg/mL", desc:"Graphene oxide dispersed in water, for thin-film deposition and composites." },
+    { id:70, cat:"Materials", sku:"TRS-MT-005", unit:"100 g", hazmat:false, name:"Alumina (Al₂O₃) Nanoparticles, ~50 nm", desc:"High-purity alumina nanoparticles for coatings, polishing, and catalysis." },
   ];
 
   // ── STATE ─────────────────────────────────────────────────
