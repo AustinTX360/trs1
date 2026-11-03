@@ -303,10 +303,11 @@
     <div class="contact-card">
       <div>
         <h2>Questions or a custom request?</h2>
-        <p>Email us and we'll get back to you.</p>
+        <p>Email or call us and we'll get back to you.</p>
       </div>
       <div class="contact-lines">
         <div><span>Email</span><a id="contactEmail" href="#"></a></div>
+        <div><span>Phone</span><a id="contactPhone" href="#"></a></div>
         <div><span>Location</span>Austin, Texas</div>
       </div>
     </div>
@@ -342,7 +343,7 @@
   </div>
   <div class="drawer-foot">
     <button class="send-btn" id="sendBtn" type="submit" form="quoteForm">Send quote request</button>
-    <div class="foot-note">This opens your email app with your request filled in.</div>
+    <div class="foot-note">This opens your email app with your request filled in. Prefer to call? <a id="drawerPhone" href="#" style="text-decoration:underline"></a></div>
   </div>
 </aside>
 
@@ -365,6 +366,9 @@
   // ── SETTINGS ──────────────────────────────────────────────
   // The email address that receives quote requests and contact emails.
   const CONTACT_EMAIL = "quotes@texasresearchsupplies.com";
+  // Phone number shown on the site (display format, and digits for tap-to-call).
+  const CONTACT_PHONE = "(765) 430-8168";
+  const CONTACT_PHONE_TEL = "+17654308168";
 
   // ── CATEGORIES ────────────────────────────────────────────
   const ICONS = {
@@ -529,6 +533,7 @@
   // ── INIT ──────────────────────────────────────────────────
   $("contactEmail").textContent = CONTACT_EMAIL;
   $("contactEmail").href = `mailto:${CONTACT_EMAIL}`;
+  ["contactPhone", "drawerPhone"].forEach(id => { $(id).textContent = CONTACT_PHONE; $(id).href = `tel:${CONTACT_PHONE_TEL}`; });
   $("yr").textContent = new Date().getFullYear();
   renderCats(); render(); refreshQuote();
 </script>
