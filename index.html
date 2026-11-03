@@ -112,6 +112,16 @@
     .add-q.added { background: var(--navy); color: #fff; }
     .details-btn { padding: 8px 12px; font-size: 13px; border-radius: 7px; border: 1px solid var(--border); background: var(--white); color: var(--text-mid); cursor: pointer; }
     .details-btn:hover { border-color: var(--border-dark); }
+    [hidden] { display: none !important; }
+    .prod-price { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 12px; }
+    .prod-price small { font-size: 11.5px; font-weight: 400; color: var(--text-muted); }
+    .prod-price.on-quote { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+    .buy-btn { flex: 1; display: inline-block; text-align: center; padding: 8px 10px; font-size: 13px; font-weight: 500; border-radius: 7px; background: var(--accent); color: #fff; border: 1px solid var(--accent); transition: background .15s; }
+    .buy-btn:hover { background: var(--accent-hover); }
+    .modal-price { font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 1rem; }
+    .modal-price small { font-size: 12.5px; font-weight: 400; color: var(--text-muted); }
+    .modal-actions { display: grid; gap: 8px; }
+    .modal .buy-btn { padding: 11px; font-size: 14px; }
     .catalog-note { font-size: 13px; color: var(--text-muted); margin-top: 1.25rem; }
 
     /* INFO */
@@ -354,9 +364,13 @@
     <div class="modal-cat" id="mCat"></div>
     <h3 id="mName"></h3>
     <div class="modal-meta" id="mMeta"></div>
+    <div class="modal-price" id="mPrice"></div>
     <p class="modal-desc" id="mDesc"></p>
     <div class="modal-note" id="mNote"></div>
-    <button class="add-q" id="mAdd"></button>
+    <div class="modal-actions">
+      <a class="buy-btn" id="mBuy" hidden>Buy now</a>
+      <button class="add-q" id="mAdd"></button>
+    </div>
   </div>
 </div>
 
@@ -387,7 +401,13 @@
 
   // ── PRODUCTS ──────────────────────────────────────────────
   // Edit this list to add, change, or remove products.
-  // hazmat: true shows the hazardous-material note on the product.
+  // hazmat: true shows the hazardous-material note and keeps the product quote-only.
+  //
+  // To sell a product online, add both of these to it:
+  //   price: 74,                                  (US dollars, per unit)
+  //   stripeLink: "https://buy.stripe.com/xxxx",  (from Stripe → Payment Links)
+  // Products with a price show it. Products with a price AND a stripeLink
+  // (and not hazmat) also get a "Buy now" button. Everything else is quote-only.
   const PRODUCTS = [
     { id:1,  cat:"Chemicals", sku:"TRS-CH-001", unit:"4 L bottle", hazmat:true,  name:"Anhydrous Ethanol, HPLC Grade", desc:"High-purity anhydrous ethanol for HPLC and analytical applications." },
     { id:2,  cat:"Chemicals", sku:"TRS-CH-002", unit:"1 L bottle", hazmat:true,  name:"Acetonitrile, LC-MS Grade", desc:"LC-MS grade acetonitrile with low UV absorbance, for mass spectrometry and HPLC." },
@@ -419,6 +439,12 @@
   const $ = id => document.getElementById(id);
   const byId = id => PRODUCTS.find(p => p.id === id);
   const inQuote = id => quote.some(q => q.id === id);
+  const hasPrice = p => typeof p.price === "number";
+  const canBuy = p => hasPrice(p) && typeof p.stripeLink === "string" && p.stripeLink.startsWith("https://") && !p.hazmat;
+  const money = n => "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const priceHtml = p => hasPrice(p)
+    ? `${money(p.price)} <small>${p.unit === "each" ? "each" : "per " + p.unit}</small>`
+    : "Price on request";
 
   // ── CATEGORY UI ───────────────────────────────────────────
   function renderCats() {
@@ -453,9 +479,11 @@
         <div class="prod-body">
           <div class="prod-name" onclick="openModal(${p.id})">${p.name}</div>
           <div class="prod-meta">${p.sku} · ${p.unit}</div>
+          <div class="prod-price ${hasPrice(p) ? "" : "on-quote"}">${priceHtml(p)}</div>
           <div class="prod-actions">
+            ${canBuy(p) ? `<a class="buy-btn" href="${p.stripeLink}">Buy now</a>` : ""}
             <button class="add-q ${inQuote(p.id) ? "added" : ""}" onclick="toggleQuote(${p.id})">${inQuote(p.id) ? "✓ In quote" : "Add to quote"}</button>
-            <button class="details-btn" onclick="openModal(${p.id})">Details</button>
+            ${canBuy(p) ? "" : `<button class="details-btn" onclick="openModal(${p.id})">Details</button>`}
           </div>
         </div>
       </div>`).join("");
@@ -512,6 +540,9 @@
     $("mCat").textContent = CATS.find(c => c.key === p.cat).label;
     $("mName").textContent = p.name;
     $("mMeta").textContent = `${p.sku} · ${p.unit}`;
+    $("mPrice").innerHTML = priceHtml(p);
+    $("mBuy").hidden = !canBuy(p);
+    if (canBuy(p)) $("mBuy").href = p.stripeLink;
     $("mDesc").textContent = p.desc;
     $("mNote").textContent = (p.hazmat ? HAZMAT_NOTE + " " : "") + "Specifications are for reference. Confirm them when you request a quote.";
     const btn = $("mAdd");
